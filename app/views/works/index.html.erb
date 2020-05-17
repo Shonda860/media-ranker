@@ -1,13 +1,10 @@
 <h2>List of Works</h2>
 
 <% Work.by_category.each do |category_name,works|%>
-<h3><%= category_name %></h3>
-<%works.each do |work|%>
+  <h3><%= category_name.upcase %></h3>
+  <div class="containter-lg">
 
-
-
-
- <table class="table table-hover">
+    <table class="table table-hover">
       <thead>
         <tr>
           <th>Votes</th>
@@ -17,27 +14,26 @@
           <th>Publication Year</th>
           <th>Edit</th>
         </tr>
-      </thead>
-      
+      <thead>
+          
       <tbody>
+        <% works.each do |work| %>
+          <tr class="clickable-tr" data-path="<%=work_path(work)%>">
+            <td><%= work.title %></td>
+            <td><%= work.category %></td>
+            <td><%= work.creator %></td>
+            <td><%= work.publication_year %></td>
+            <td><%= work.title %></td>
+            <td><%= work.title %></td>
+          </tr> 
+        <% end %> 
+      </tbody>
+    </table>
+<% end %>
 
-  <% if works.length > 0 %>
-      <% works.each do |work| %>
-      <tr>
-        <td><%= work.title %></td>
-        <td><%= work.category %></td>
-        <td><%= work.creator %></td>
-        <td><%= work.publication_year %></td>
-        <td><%= work.title %></td>
-         <td><%= work.title %></td>
 
-      </tr> 
-      <% end %> 
-       </body>
-      </table>
-    <% else %>
-    <h2>No Works in the system</h2>
-  <% end %>
-  <% end %>
-  <% end %>
-
+  <%# </tbody> %>
+    <%# </table> %>
+     <%# <% else %> 
+            <%# <h2>No Works in the system</h2> %>
+                <%# <% if works.length > 0 %>
