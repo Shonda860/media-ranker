@@ -1,24 +1,10 @@
-<h2>Works</h2>
- <table>
-      <thead>
-        <tr>
-          <th>Category</th>
-          <th>Title</th>
-          <th>Created By</th>
-          <th>Publication Year</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      </tbody>
+<h1><%= @work.title %></h1>
+<p>Created by:<%= @work.creator %></p>
+<p>Published:<%= @work.publication_year %></p>
+<p>Description<%= @work.description %></p>
 
-    <tr>
-      <td><%= @work.category %></td>
-      <td><%= @work.title %></td>
-      <td><%= @work.creator %></td>
-      <td><%= @work.publication_year %></td>
-      <td><%= @work.description %></td>
-    </tr> 
+  
    
-    </table>
+  
 
 
