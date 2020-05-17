@@ -1,5 +1,6 @@
 class WorksController < ApplicationController
   def index
+
     @works = Work.all
   end
 
@@ -19,6 +20,13 @@ class WorksController < ApplicationController
     end
   end
 end
+
+# def by_category
+#   work = Work.category
+#   if !work.nil?
+#     @work = Work.where(category: "albums")
+#   end
+# end
 
 private 
 def work_params 

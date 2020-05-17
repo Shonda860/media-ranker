@@ -1,6 +1,6 @@
 require "csv"
 
-WORK_FILE = Rails.root.join("db", "seed_data", "works-seeds.csv")
+WORK_FILE = Rails.root.join("db","works-seeds.csv")
 puts "Loading raw works data from #{WORK_FILE}"
 
 work_failures = []
@@ -11,13 +11,12 @@ CSV.foreach(WORK_FILE, :headers => true) do |row|
   work.creator = row["creator"]
   work.publication_year = row["publication_year"]
   work.description = row["description"]
-  work.album = row["album"]
   successful = work.save
   if !successful
     work_failures << work
     puts "Failed to save work: #{work.inspect}"
   else
-    puts " Created driver: #{work.inspect}"
+    puts " Created work: #{work.inspect}"
   end
 end
 
