@@ -1,0 +1,34 @@
+<main>
+    <section>
+      <%= form_with model: @work, class: "edit-work" do |f|%>
+        <div class = "form-group">
+          <%=f.label :Category%>
+          <%=f.select :work_category, ["album","book","movie"]%>
+        </div>
+
+        <div class = "form-group">
+          <%=f.label :Title%>
+          <%=f.text_field :title%>
+        </div>
+
+        <div class = "form-group">
+          <%=f.label :Creator%>
+          <%=f.text_field :creator%>
+        </div>
+
+        <div class = "form-group">
+          <%=f.label :Publication_Year%>
+          <%=f.text_field :publication_year%>
+        </div>
+
+        <div class = "form-group">
+          <%=f.label :Description%>
+          <%=f.text_area :description%>
+        </div>
+
+        <div class = "form-group">
+          <%= f.submit action_name %>
+        </div>
+      <%end%>
+    </section>
+  </main>

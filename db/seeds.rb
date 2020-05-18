@@ -37,7 +37,6 @@ user_failures = []
 CSV.foreach(USER_FILE, :headers => true) do |row|
   user = User.new
   user.username = row["username"]
-  user.votes = row["votes"]
   user.joined = row["joined"]
  
   successful = user.save

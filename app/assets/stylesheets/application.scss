@@ -12,7 +12,11 @@
  *
  */
 
-/* Custom bootstrap variables must be set or imported *before* bootstrap. */
-@import "bootstrap";
 
+/* Custom bootstrap variables must be set or imported *before* bootstrap. */
+
+@import "bootstrap";
 @import "**/*";
+body {
+    font-family: "Gudea", sans-serif;
+}
