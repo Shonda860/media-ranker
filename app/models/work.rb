@@ -1,4 +1,5 @@
 class Work < ApplicationRecord
+  has_many :users
   validates :title, :creator, :publication_year, :description, presence: true
 
   def self.category
