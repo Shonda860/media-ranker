@@ -8,23 +8,23 @@
       <thead>
         <tr>
           <th>Votes</th>
-          <th>Catergory</th>
           <th>Title</th>
+          <th>Catergory</th>
           <th>Created By</th>
-          <th>Publication Year</th>
-          <th>Edit</th>
+          <th>Published</th>
+          <th>Upvote</th>
         </tr>
       <thead>
           
       <tbody>
         <% works.each do |work| %>
           <tr class="clickable-tr" data-path="<%=work_path(work)%>">
-            <td><%= work.title %></td>
+            <td>0</td>
+            <td><%= link_to work.title,work_path(work.id) %></td>
             <td><%= work.category %></td>
             <td><%= work.creator %></td>
             <td><%= work.publication_year %></td>
-            <td><%= work.title %></td>
-            <td><%= work.title %></td>
+            <td>Upvote</td>
           </tr> 
         <% end %> 
       </tbody>
