@@ -1,0 +1,32 @@
+<h1>User Summary:<%= @user.username%></h1>
+<p>Joined:<%= @user.joined%></p>
+<h1>Votes</h2>
+
+
+  <div class="containter-lg">
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Media Title</th>
+          <th>Created By</th>
+          <th>Published</th>
+          <th>Category</th>
+          <th>Voted On</th>
+        </tr>
+      <thead>
+          
+      <tbody>
+        <% %>
+          <tr class="clickable-tr" data-path="<%=user_path(@user)%>">
+            <td><% %></td>
+            <td><% %></td>
+            <td><% %></td>
+            <td><%=  %></td>
+            <td><%=  %></td>
+            
+          </tr> 
+        <% %> 
+      </tbody>
+    </table>
+    </div>
