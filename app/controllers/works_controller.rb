@@ -68,7 +68,10 @@ class WorksController < ApplicationController
     end
   end
 
-
+def upvote
+  if session[:user_id]
+    @work = Work.find_by(id: params[:id])
+    if @
 
   private 
   def work_params 

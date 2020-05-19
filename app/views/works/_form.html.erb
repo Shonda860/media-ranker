@@ -1,6 +1,17 @@
 <main>
     <section>
       <%= form_with model: @work, class: "edit-work" do |f|%>
+        <% if @work.errors.any? %>
+          <ul class = "alert alert-warning">
+            <% @work.errors.each do |column,message|%>
+              <li>
+                <%= column%> <%=message%>
+              </li>
+            <%end%>
+          </ul>
+        <%end%>
+
+
         <div class = "form-group">
           <%=f.label :Category%><br>
           <%=f.select :category, ["album","book","movie"]%>
