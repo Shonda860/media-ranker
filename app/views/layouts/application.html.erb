@@ -17,6 +17,9 @@
       </h1>
         <nav clas="app-header__nav">
           <ul class="nav app-header__site-nav-container">
+             <li class="nav-item app-header__nav_item">
+              <a class="nav-link" href="/">View top media</a>
+              </li>
             <li class="nav-item app-header__nav_item">
               <a class="nav-link" href="/works">View all media</a>
               </li>
@@ -26,9 +29,26 @@
               <li class="nav-item app-header__nav_item">
               <a class="nav-link" href="/works/new">Add a new work</a>
               </li>
+           <ul class="nav app-header__user-nav-container"> 
+            <li class="nav-item app-header__nav_item">
+                <a class="btn btn-primary" href="/login">Log In</a>
+            </li>
           </ul>
         </nav>
 </header>
+    <section class="alert_container">
+        <% flash.each do |name, message|%>
+            <% if name == "success"%>
+                <div class="alert alert-success">    
+                  <span ><%=message%></span>
+                </div>
+              <%else%>
+                <div class="alert alert-success"> 
+                  <span ><%=message%></span>
+                <div>
+             <%end%>
+          <%end%>
+      </section>
     <%= yield %>
   </body>
 </html>
