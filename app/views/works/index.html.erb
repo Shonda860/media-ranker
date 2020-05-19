@@ -4,7 +4,7 @@
 
     <% Work.category.each do |category_name,works|%>
       <h4><%= category_name.upcase %>S</h4>
-      <div class="containter-lg">
+     
 
         <table class="table">
           <thead>
@@ -26,12 +26,11 @@
                 <td><%= work.category %></td>
                 <td><%= work.creator %></td>
                 <td><%= work.publication_year %></td>
-                <td>Upvote</td>
+                <td><%= link_to "Upvote", upvote_path(work.id), method: :post%></td>
               </tr> 
             <% end %> 
           </tbody>
         </table>
-        </div>
     <% end %>
   </section>
 </main>
