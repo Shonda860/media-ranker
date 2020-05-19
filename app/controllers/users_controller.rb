@@ -34,8 +34,8 @@ class UsersController < ApplicationController
     def current
       @current_user = current_user
 
-      if !@current_user
-        flash[:warning] = "You must log in to do that"
+      unless @current_user
+        flash[:error] = "You must log in to do that"
         redirect_to root_path
         return
       end 
