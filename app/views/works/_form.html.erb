@@ -3,7 +3,7 @@
       <%= form_with model: @work, class: "edit-work" do |f|%>
         <div class = "form-group">
           <%=f.label :Category%><br>
-          <%=f.select :work_category, ["album","book","movie"]%>
+          <%=f.select :category, ["album","book","movie"]%>
         </div>
 
         <div class = "form-group">
