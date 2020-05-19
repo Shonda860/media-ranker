@@ -70,23 +70,38 @@ class WorksController < ApplicationController
   end
 
 def upvote
-   if session[:user_id]
-    @work_id = Work.find_by(id: params[:id])
-    if @work.votes.find_by(user_id: session[:user_id])
-      redirect_to works_path
+    @user = session[:user_id]
+
+    if @user.works.include?(@work) 
       flash[:error] = "#{session[:user_id]}:has aleady voted for this #{@work.category}"
-     return
-    else
-      @work.new_vote(session[:user_id])
-      redirect_to works_path
-      flash[:success]= "Successfully upvoted!"
-      return
+    else 
+      new_vote = Vote.new(user_id:user.id, work_id:@work.id)
+        if new_vote.save
+          flash[:success]= "Successfully upvoted for #{@work.title}!" 
+        else
+          redirect_to works_path
+          return
+        end
     end
-  else 
-    redirect_to works_path
-    flash[:error] = "A problem occurred:You must log in to do that"
   end
-end
+
+  #  if session[:user_id]
+  #   @work_id = Work.find_by(id: params[:id])
+  #   if @work.votes.find_by(user_id: session[:user_id])
+  #     redirect_to works_path
+  #     flash[:error] = #{session[:user_id]}:has aleady voted for this #{@work.category}"
+  #    return
+  #   else
+  #     @work.new_vote(session[:user_id])
+  #     redirect_to works_path
+  #     
+  #     return
+  #   end
+#   else 
+#     redirect_to works_path
+#     flash[:error] = "A problem occurred:You must log in to do that"
+#   end
+# end
 
   private 
   def work_params 
