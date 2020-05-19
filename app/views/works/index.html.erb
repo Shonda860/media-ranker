@@ -20,8 +20,8 @@
               
           <tbody>
             <% works.each do |work| %>
-              <tr class="clickable-tr" data-path="<%=work_path(work)%>">
-                <td>0</td>
+              <tr>
+                <td><%=%></td>
                 <td><%= link_to work.title,work_path(work.id) %></td>
                 <td><%= work.category %></td>
                 <td><%= work.creator %></td>
