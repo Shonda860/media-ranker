@@ -1,11 +1,13 @@
-<h1>User Summary:<%= @user.username%></h1>
+<h2>User Summary:<%= @user.username.upcase%></h2>
 <p>Joined:<%= @user.joined%></p>
-<h1>Votes</h2>
+<section class="user-votes__container">
+  <h3 class= "user-votes__header">Votes</h3>
 
 
-  <div class="containter-lg">
 
-    <table class="table table-hover">
+
+
+    <table class="table">
       <thead>
         <tr>
           <th>Media Title</th>
@@ -18,7 +20,7 @@
           
       <tbody>
         <% %>
-          <tr class="clickable-tr" data-path="<%=user_path(@user)%>">
+          <tr>
             <td><% %></td>
             <td><% %></td>
             <td><% %></td>
@@ -29,4 +31,5 @@
         <% %> 
       </tbody>
     </table>
-    </div>
+  </section>
+    
