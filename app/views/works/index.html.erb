@@ -1,8 +1,8 @@
 <main>
   <h2>List of Works</h2><br>
-    <section class="media-table">
-      <% Work.category.each do |category_name,works|%>
-        <h4><%= category_name.capitalize %>s</h4>
+  <section class="media-table">
+    <% Work.category.each do |category_name,works|%>
+      <h4><%= category_name.capitalize %>s</h4>
      
 
         <table class="table">
@@ -10,7 +10,6 @@
             <tr>
               <th>Votes</th>
               <th>Title</th>
-              <th>Catergory</th>
               <th>Created By</th>
               <th>Published</th>
               <th>Upvote</th>
@@ -20,11 +19,10 @@
           <tbody>
             <% works.each do |work| %>
               <tr>
-                 <td><%= work.votes.length %></td>
-                <td><%= link_to work.title,work_path(work.id) %></td>
-                <td><%= work.category %></td>
-                <td><%= work.creator %></td>
-                <td><%= work.publication_year %></td>
+                <td><%= work.votes.length %></td>
+                <td><%=link_to work.title,work_path(work.id)%></td>
+                <td><%=work.creator%></td>
+                <td><%=work.publication_year%></td>
                 <td><%= link_to "Upvote", upvote_path(work.id), method: :patch, class: "btn btn-primary"%></td>
               </tr> 
             <% end %> 
