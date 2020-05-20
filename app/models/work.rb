@@ -1,5 +1,5 @@
 class Work < ApplicationRecord
-  has_many :users
+  has_many :votes
   validates :title, :creator, :publication_year, :description, presence: true
 
   def self.category
@@ -10,4 +10,7 @@ class Work < ApplicationRecord
       end
         return categories
   end
+
+ 
+
 end
