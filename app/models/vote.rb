@@ -1,6 +1,9 @@
 class Vote < ApplicationRecord
   belongs_to :user
   belongs_to :work
+  validates :work_id, presence: true
+  validates :user_id, presence: true
+  validates uniqueness: {scope: :work_id, message: "you have already voted for this works"}
 
   def self.new_vote(user_id:, work_id:)
     work = Work.find_by(id: work_id)
@@ -8,7 +11,7 @@ class Vote < ApplicationRecord
     if !user || !work
       return nil
     else
-      return Vote.new(user_id: user, work_id: work)
+      return Vote.new(user_id: user_id, work_id: work_id)
     end
   end
 end
