@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   post "/logout", to: "users#logout", as: "logout"
   get "/users/current", to: "users#current", as: "current_user"
 
-  patch "/works/:id/upvote", to: "works#upvote", as: "upvote"
+patch "/works/:id/upvote", to: "works#upvote", as: "upvote"
   
 end

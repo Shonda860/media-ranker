@@ -14,6 +14,6 @@ class Work < ApplicationRecord
   # def new_vote(user_id)
   #   return vote = Vote.create(user_id: user_id, work_id: self.id)
   # end
-
+ 
 
 end

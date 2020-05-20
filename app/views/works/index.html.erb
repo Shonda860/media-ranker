@@ -26,7 +26,7 @@
                 <td><%= work.category %></td>
                 <td><%= work.creator %></td>
                 <td><%= work.publication_year %></td>
-                <td><%= link_to "Upvote", upvote_path(work.id), method: :patch%></td>
+                <td><%= link_to "Upvote", upvote_path(work.id), method: :patch, class: "btn btn-primary"%></td>
               </tr> 
             <% end %> 
           </tbody>
