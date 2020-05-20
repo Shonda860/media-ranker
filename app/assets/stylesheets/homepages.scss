@@ -1,3 +1,74 @@
 // Place all the styles related to the Homepages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.spotlight {
+    padding: 0 2rem 2rem 2rem;
+}
+
+.spotlight__header {
+    color: #26A69A;
+}
+
+.spotlight__header--prefix {
+    color: #424242;
+}
+
+.spotlight__link-to {
+    border-bottom: 2px solid;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.spotlight__description {
+    margin-bottom: 0;
+}
+
+.root__hr {
+    margin: 0px auto 3rem auto;
+    color: #EEEEEE;
+}
+
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.top-ten__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 2em;
+}
+
+.top-ten__header {
+    color: #26A69A;
+    border-bottom: 2px solid;
+    border-bottom-color: #B2DFDB;
+}
+
+.list-group {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.top-ten__list {
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.list-group-item:first-child {
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+}
+
+.top-ten__creator {
+    color: slategrey;
+}

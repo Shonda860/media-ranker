@@ -1,0 +1,45 @@
+<main>
+  <section class="spotlight">
+    <h2 class="spotlight__header">
+      <span class="spotlight__header--prefix">
+         "Media Spotlight" *::after
+      </span>
+      <a class="spotlight_link-to" href="">
+    </h2>
+
+  <p class="spotlight__description"></p>
+  </section>
+
+  
+     <%Work.top_ten.each do |category_name,works|%> 
+   <hr class="root__hr">  
+   <section class="top-ten__container">
+       <section class="top-ten__list-container">
+        <h2 class="top-ten__header"> 
+        <%=category_name%><h2> 
+        <% works.each do |work|%> 
+          <ul class="list-group top-ten__list">
+            <li class="list-group-item">
+              <h4><a href=""><%=work.title%></a> 
+                <small class="top-ten__creator"><%=work.creator%></small> 
+              </h4>
+              <p><%=work.votes.length%></p>  
+            </li> 
+          </ul>  
+        <% end%>  
+    <% end %>    
+       
+  </section>   
+</section>
+ 
+
+  <%Work.top_ten.each do |category_name,works|%> 
+   <% works.each do |work|%>
+   <%=work.title%>
+           <%=work.creator%>
+           
+               <% end%>  
+    <% end %>  
+            
+         
+        

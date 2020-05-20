@@ -5,7 +5,7 @@ class WorksController < ApplicationController
   end
 
   def show 
-    raise
+
     if @work.nil?
       redirect_to works_path
       return
