@@ -8,7 +8,7 @@
   <section>
     <a class="btn btn-primary" href = "/users ">Back to media ranks</a>
     <a class="btn btn-primary" href = "<%= edit_work_path(@work.id)%>">Edit</a>
-    <a class="btn btn-primary" href = "<%= %>">Upvote</a>
+    <%= link_to "Upvote", upvote_path(@work.id), method: :patch, class: "btn btn-primary"%>
     <a class="btn btn-danger" data-confirm="Are you sure?" rel="nofollow" data-method="delete" href = "<%= %>">Delete</a>
   </section>
 </section>

@@ -1,9 +1,8 @@
 <main>
-  <section class="media-table">
-    <h2>List of Works</h2><br>
-
-    <% Work.category.each do |category_name,works|%>
-      <h4><%= category_name.upcase %>S</h4>
+  <h2>List of Works</h2><br>
+    <section class="media-table">
+      <% Work.category.each do |category_name,works|%>
+        <h4><%= category_name.capitalize %>s</h4>
      
 
         <table class="table">
@@ -33,6 +32,8 @@
         </table>
     <% end %>
   </section>
+  <%=link_to "View top media", root_path, class:"btn btn-secondary" %>
+  <%=link_to "Add a new work", root_path, class:"btn btn-primary" %>
 </main>
 
 
