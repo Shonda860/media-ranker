@@ -1,12 +1,8 @@
-<h2>User Summary:<%= @user.username.upcase%></h2>
-<p>Joined site: <%= @user.created_at.strftime("%b %d, %Y")%></p>
+<main>
+  <h2>User Summary: <%=link_to @user.username.downcase, user_path(@user.id)%></h2>
+  <p>Joined site: <%= @user.created_at.strftime("%b %d, %Y")%></p>
 <section class="user-votes__container">
-  <h3 class= "user-votes__header">Votes</h3>
-
-
-
-
-
+  <h3 class= "user-votes__header"><%=@user.votes.length%> Votes</h3>
     <table class="table">
       <thead>
         <tr>
@@ -17,7 +13,7 @@
           <th>Voted On</th>
         </tr>
       <thead>
-          
+
       <tbody>
         <% @user.votes.each do |vote| %>
           <tr>
@@ -26,7 +22,6 @@
             <td><%=vote.work.publication_year.upcase %></td>
             <td><%= vote.work.category%></td>
             <td><%= vote.work.created_at.strftime("%b %d, %Y")%></td>
-        
           </tr> 
         <%end%> 
       </tbody>
