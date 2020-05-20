@@ -4,7 +4,7 @@
     <title>MediaRanker</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css?family=Gudea:400,700|Hammersmith+One">
     <%= stylesheet_link_tag "application", media: "all", 'data-turbolinks-track': "reload" %>
     <%= javascript_pack_tag "application", 'data-turbolinks-track': "reload" %>
   </head>
@@ -29,25 +29,22 @@
               <li class="nav-item app-header__nav_item">
               <a class="nav-link" href="/works/new">Add a new work</a>
               </li>
+              </ul>
            <ul class="nav app-header__user-nav-container"> 
              <li class="nav-item app-header__nav_item">
-                <a class="btn btn-primary" href="/login">Log In</a>
+                 <% label = session[:user_id] ? "Log in as #{User.find_by(id: session[:user_id]).username.upcase}" : "Log in"%>
+                  <%=link_to label, login_path, class: "btn btn-primary" %>
             </li>
-            <%if session[:user_id]%>
-              <li class="nav-item app-header__nav_item">
-                <%link_to "Log Out", logout_path, method: :post%>
-            </li>
-            <% else %>
-           
+            <% if session[:user_id]%>
              <li class="nav-item app-header__nav_item">
-                <a class="btn btn-primary" href="">Logged In as <%=%></a>
+                 <%=link_to "Log Out", logout_path, method: :post, class:"btn btn-primary" %>
             </li>
-              <% end %>
+            <%end%>
           </ul>
         </nav>
 </header>
     <section class="alert_container">
-        <% flash.each do |name, message|%>
+        <%  flash.each do |name, message|%>
             <% if name == "success"%>
                 <div class="alert alert-success">    
                   <span ><%=message%></span>

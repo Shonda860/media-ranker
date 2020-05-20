@@ -1,6 +1,5 @@
 class WorksController < ApplicationController
   def index
-    
     @works = Work.all
   end
 
@@ -69,21 +68,51 @@ class WorksController < ApplicationController
     end
   end
 
-def upvote
-    @user = session[:user_id]
-
-    if @user.works.include?(@work) 
-      flash[:error] = "#{session[:user_id]}:has aleady voted for this #{@work.category}"
-    else 
-      new_vote = Vote.new(user_id:user.id, work_id:@work.id)
-        if new_vote.save
-          flash[:success]= "Successfully upvoted for #{@work.title}!" 
+  def upvote
+    @work = Work.find_by(id: params[:id])
+    if session[:user_id]
+      @vote = Vote.new_vote(user_id:session[:user_id], work_id: @work.id)
+        if @vote.save
+          flash[:success]= "Successfully upvoted for #{@work.title}!"
         else
-          redirect_to works_path
-          return
+          flash[:error]="A problem occurred: Could not upvote"
         end
+    else
+      flash[:error]="A problem occurred: You must be logged in to do that"
     end
+    redirect_to work_path(@work)
   end
+
+            #     return
+    #     flash[:error] = "#{session[:user_id]}:has aleady voted for this #{@work.category}"
+    #   else 
+    #     # params = work.upvote(session[:user_id])
+    #     Vote.create(user_id: params[:user.id], work_id: params[:work.id])
+    #      
+    #   end
+    #   else
+    #     redirect_to works_path
+    #     flash[:error]="A problem occurred:You must log in to do that"
+    #     return
+
+    # work = Work.find_by(id: params[:id])
+    # vote = Vote.find_by(user_id: session[:user_id], work_id: work.id)
+
+    # if session[:user_id]
+    #   if vote 
+    #     flash[:error] = "#{session[:user_id]}:has aleady voted for this #{@work.category}"
+    #   else 
+    #     # params = work.upvote(session[:user_id])
+    #     Vote.create(user_id: params[:user.id], work_id: params[:work.id])
+    #     flash[:success]= "Successfully upvoted for #{@work.title}!" 
+    #   end
+    #   else
+    #     redirect_to works_path
+    #     flash[:error]="A problem occurred:You must log in to do that"
+    #     return
+  #  end
+  # end
+
 
   #  if session[:user_id]
   #   @work_id = Work.find_by(id: params[:id])
