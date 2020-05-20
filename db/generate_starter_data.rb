@@ -22,14 +22,21 @@ require "csv"
 #     csv << [category, title, creator, publication_year, description]
 #   end
 # end
-# File.open("db/users_seeds.csv", "a+",:write_headers => true,
-#     :headers => ["username", "votes", "joined"]) do |file|
+# CSV.open("db/users_seeds.csv", "a+",:write_headers => true,
+# :headers => ["username",  "joined"]) do |csv|
 # 25.times do
 # username = Faker::FunnyName.name
-# votes = 0
 # joined = rand(Date.today - 100..Date.today)
-# file << [username, votes, joined]
-# puts "done"
+# csv << [username, joined]
 # end
 # end
+
+CSV.open("db/votes_seeds.csv", "a+",:write_headers => true,
+:headers => ["user_id","work_id"]) do |csv|
+25.times do
+user_id = rand(1..25)
+work_id = rand(1..25)
+csv << [user_id, work_id]
+end
+end
 

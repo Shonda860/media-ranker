@@ -4,28 +4,59 @@
     <title>MediaRanker</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css?family=Gudea:400,700|Hammersmith+One">
     <%= stylesheet_link_tag "application", media: "all", 'data-turbolinks-track': "reload" %>
     <%= javascript_pack_tag "application", 'data-turbolinks-track': "reload" %>
   </head>
 
   <body>
-    <header claas="app-header__header">
+    <header class="app-header__header">
       <h1>
         <a href ="/works">MediaRanker</a>
         <small>Ranking the Best of Everything</small>
       </h1>
         <nav clas="app-header__nav">
-          <ul class="nav-item app-header__site-nav-container">
+          <ul class="nav app-header__site-nav-container">
+             <li class="nav-item app-header__nav_item">
+              <a class="nav-link" href="/">View top media</a>
+              </li>
             <li class="nav-item app-header__nav_item">
               <a class="nav-link" href="/works">View all media</a>
               </li>
                <li class="nav-item app-header__nav_item">
               <a class="nav-link" href="/users">View all users</a>
               </li>
+              <li class="nav-item app-header__nav_item">
+              <a class="nav-link" href="/works/new">Add a new work</a>
+              </li>
+              </ul>
+           <ul class="nav app-header__user-nav-container"> 
+             <li class="nav-item app-header__nav_item">
+                 <% label = session[:user_id] ? "Log in as #{User.find_by(id: session[:user_id]).username.upcase}" : "Log in"%>
+                  <%=link_to label, login_path, class: "btn btn-primary" %>
+            </li>
+            <% if session[:user_id]%>
+             <li class="nav-item app-header__nav_item">
+                 <%=link_to "Log Out", logout_path, method: :post, class:"btn btn-primary" %>
+            </li>
+            <%end%>
           </ul>
         </nav>
 </header>
+    <section class="alert_container">
+        <%  flash.each do |name, message|%>
+            <% if name == "success"%>
+                <div class="alert alert-success">    
+                  <span ><%=message%></span>
+                </div>
+              <%else%>
+                <div class="alert alert-warning"> 
+                  <span ><%=message%></span>
+                  <ul> <ul>
+                <div>
+             <%end%>
+          <%end%>
+      </section>
     <%= yield %>
   </body>
 </html>
