@@ -1,5 +1,5 @@
 <h2>User Summary:<%= @user.username.upcase%></h2>
-<p>Joined:<%= @user.joined%></p>
+<p>Joined site: <%= @user.created_at.strftime("%b %d, %Y")%></p>
 <section class="user-votes__container">
   <h3 class= "user-votes__header">Votes</h3>
 
@@ -19,16 +19,16 @@
       <thead>
           
       <tbody>
-        <% %>
+        <% @user.votes.each do |vote| %>
           <tr>
-            <td><% %></td>
-            <td><% %></td>
-            <td><% %></td>
-            <td><%=  %></td>
-            <td><%=  %></td>
-            
+            <td><%= vote.work.title %></td>
+            <td><%= vote.work.creator %></td>
+            <td><%=vote.work.publication_year.upcase %></td>
+            <td><%= vote.work.category%></td>
+            <td><%= vote.work.created_at.strftime("%b %d, %Y")%></td>
+        
           </tr> 
-        <% %> 
+        <%end%> 
       </tbody>
     </table>
   </section>
