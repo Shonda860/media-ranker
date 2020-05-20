@@ -57,4 +57,32 @@ ActiveRecord::Base.connection.tables.each do |t|
   ActiveRecord::Base.connection.reset_pk_sequence!(t)
 end
 
+
+VOTE_FILE = Rails.root.join("db","votes-seeds.csv")
+puts "Loading raw works data from #{VOTE_FILE}"
+
+vote_failures = []
+CSV.foreach(VOTE_FILE, :headers => true) do |row|
+  vote = Vote.new
+  vote.user_id = row["user_id"]
+  vote.work_id = row["work_id"]
+ 
+  successful = vote.save
+  if !successful
+   vote_failures << vote
+    puts "Failed to save work: #{vote.inspect}"
+  else
+    puts " Created work: #{vote.inspect}"
+  end
+end
+
+puts "Added #{Vote.count} vote records"
+puts "#{vote_failures.length} vote failed to save"
+
+puts "Manally resetting PK sequence on each table"
+
+ActiveRecord::Base.connection.tables.each do |t|
+  ActiveRecord::Base.connection.reset_pk_sequence!(t)
+end
+
 puts "done"
