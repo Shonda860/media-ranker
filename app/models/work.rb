@@ -1,5 +1,5 @@
 class Work < ApplicationRecord
-  has_many :users
+  has_many :votes
   validates :title, :creator, :publication_year, :description, presence: true
 
   def self.category
@@ -11,9 +11,6 @@ class Work < ApplicationRecord
         return categories
   end
 
-  # def new_vote(user_id)
-  #   return vote = Vote.create(user_id: user_id, work_id: self.id)
-  # end
  
 
 end
