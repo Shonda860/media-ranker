@@ -12,13 +12,17 @@ describe User do
   it "will have the required fields" do
     new_user.save
     user = User.first
-    expect(user.username).must_equal "Rose Gardner"
+    expect(user.username).must_equal "Rose Gardner"      
   end
 
   describe "relationships" do
+    before do
+      new_user.save
+      new_user = User.first
+    end
+
     it "can have many votes" do
       #Arrange
-      new_user.save
       work_1 = Work.create(category:"album", title:"Greatest Hits", creator: "Eagles", publication_year: "2000", description: "description")
       work_2 = Work.create(category:"book", title:"The Jordan Story", creator: "Jordan", publication_year: "1980", description: "description")
       work_3 = Work.create(category:"movie", title:"Space Jam", creator: "LBJ", publication_year: "2022", description: "description")
@@ -39,6 +43,7 @@ describe User do
       expect(new_user.valid?).must_equal false
       expect(new_user.errors.messages).must_include :username
       expect(new_user.errors.messages[:username]).must_equal ["can't be blank"]
+      
     end
   end
 end
