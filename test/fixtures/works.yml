@@ -1,0 +1,109 @@
+kindred:
+  category: book
+  title: Kindred
+  creator: butler
+  description: A good sci-fi book
+  publication_year: "1979"
+parable:
+  category: book
+  title: Parable of the Sower
+  creator: butler
+  description: Fire drugs?
+  publication_year: "1993"
+poodr:
+  category: book
+  title: Practical Object Oriented Design in Ruby
+  creator: metz
+  description: A good book on programming
+  publication_year: "2012"
+eagles:
+  category: album
+  title: Greatest Hits
+  creator: Eagles 
+  publication_year: "2000"
+  description: description    
+jordan:
+  category: book
+  title: The Jordan Story 
+  creator: Jordan
+  publication_year: "1980" 
+  description: description     
+jounrey:
+  category: album
+  title: Greatest Hits
+  creator: jounrey 
+  publication_year: "2000"
+  description: description    
+hank:
+  category: book
+  title: The hank Story 
+  creator: hank
+  publication_year: "1980" 
+  description: description     
+fleetwood:
+  category: album
+  title: Greatest Hits
+  creator: fleetwood 
+  publication_year: "2000"
+  description: description    
+kobe:
+  category: book
+  title: The kobe Story 
+  creator: kobe
+  publication_year: "1980" 
+  description: description     
+jayz:
+  category: album
+  title: Greatest Hits
+  creator: jayz 
+  publication_year: "2000"
+  description: description    
+hank:
+  category: book
+  title: The hank Story 
+  creator: hank
+  publication_year: "1980" 
+  description: description     
+emiemen:
+  category: album
+  title: Greatest Hits
+  creator: emiemen 
+  publication_year: "2000"
+  description: description 
+wayne:
+  category: album
+  title: Greatest Hits
+  creator: wayne 
+  publication_year: "2000"
+  description: description 
+west:
+  category: album
+  title: Greatest Hits
+  creator: kanye wast
+  publication_year: "2000"
+  description: description 
+ross:
+  category: album
+  title: Greatest Hits
+  creator: Diana Ross
+  publication_year: "2000"
+  description: description 
+paramore:
+  category: album
+  title: Greatest Hits
+  creator: Paramore
+  publication_year: "2000"
+  description: description 
+park:
+  category: album
+  title: Greatest Hits
+  creator: Linkin Park
+  publication_year: "2000"
+  description: description 
+carey:
+  category: album
+  title: Greatest Hits
+  creator: Mariah
+  publication_year: "2000"
+  description: description 
+ 
