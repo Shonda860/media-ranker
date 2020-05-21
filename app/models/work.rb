@@ -10,24 +10,9 @@ class Work < ApplicationRecord
       end
         return categories
   end
-  # def self.top_ten
-  #   categories = {"Top Album" => [], "Top Book" => [], "Top Movie" =>[]}
-  #   categories.each do |category,record|
-  #   sorted_works = all.sort_by {|work| - work.votes.length}
-  #     categories[record] = sorted_works
-  #   end
-  #   return categories
-  # end
-  def self.top_ten(type)
-    categories = {"Top Album" => [], "Top Book" => [], "Top Movie" =>[]}
-    sorted_works = all.sort_by {|work| -work.votes.length}
-    works_listed = []
-    sorted_works.each do |work|
-      if work.category == category
-        works_listed << work
-      end
-    end
-    return sorted_works
-  end
-
+  def self.top_ten(category)
+  #  all_works = Work.all
+   sorted_works = Work.where(category: category).sort_by {|work| -work.votes.count}.reverse!.first(10)
+   return sorted_works
+  end 
 end

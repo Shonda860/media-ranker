@@ -72,3 +72,23 @@ hr {
 .top-ten__creator {
     color: slategrey;
 }
+
+small,
+.small {
+    font-size: 80%;
+    font-weight: 400;
+}
+
+ul {
+    list-style-type: disc;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
