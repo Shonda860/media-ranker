@@ -19,7 +19,7 @@
           <tbody>
             <% works.each do |work| %>
               <tr>
-                <td><%= work.votes.length %></td>
+                <td><%= work.votes.length. %></td>
                 <td><%=link_to work.title,work_path(work.id)%></td>
                 <td><%=work.creator%></td>
                 <td><%=work.publication_year%></td>
