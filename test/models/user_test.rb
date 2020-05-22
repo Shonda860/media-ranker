@@ -10,7 +10,7 @@ describe User do
     it "will have the required fields" do
       users(:user_1).username = nil
       no_username = users(:user_1).valid?
-       expect (no_username).must_equal false      
+       expect _(no_username).must_equal false      
     end
     it "it can advise of errors" do
     
