@@ -4,10 +4,10 @@
       <span class="spotlight__header--prefix">
          "Media Spotlight" *::after
       </span>
-      <a class="spotlight_link-to" href=""><%=Work.spotlight.title%>by<%=Work.spotlight.creator%></a>
+      <a class="spotlight__link-to" href=""><%=Work.spotlight.title%>by<%=Work.spotlight.creator%></a>
     </h2>
 
-  <p class="spotlight__description"></p>
+  <p class="spotlight__description"><%=Work.spotlight.votes.length%> votes- <%=Work.spotlight.description%></p>
   </section>
 
   
@@ -23,7 +23,7 @@
           <ul class="list-group top-ten__list">
             <li class="list-group-item">
               <%= link_to movie.title, work_path(movie.id)%>
-              <h4><a href=""><%= link_to movie.title, work_path(movie.id)%></a> <br>
+              <h4><%= link_to movie.title, work_path(movie.id)%></a> <br>
                 <small class="top-ten__creator">by<%=movie.creator%></small> 
               </h4>
               <p><%=movie.votes.count%>votes</p>  
@@ -34,47 +34,49 @@
              <%end%>
           </ul>     
   </section> 
-     <hr class="root__hr">  
-   <section class="top-ten__container">
-       <section class="top-ten__list-container">
-       <%top_books = Work.top_ten("book")%>
+  
+
+    <section class="top-ten__list-container">
+      <%top_books = Work.top_ten("book")%>
         <h2 class="top-ten__header"> Top Book
-      <h2> 
-          <%if top_books.length > 0%>
-        <%top_books.each do |book|%>
-          <ul class="list-group top-ten__list"> 
-            <li class="list-group-item">
-              <h4><a href=""> <%= link_to book.title, work_path(book.id)%></a> <br>
-                <small class="top-ten__creator">by<%=book.creator%></small> 
-              </h4>
-              <p><%=book.votes.count%>votes</p>  
-            </li> 
-            <%end%>
-            <%else%>
-               <p>No Book have been created in system</p>
-             <%end%>
-          </ul>     
+        <h2> 
+        <%if top_books.length > 0%>
+          <%top_books.each do |book|%>
+            <ul class="list-group top-ten__list"> 
+              <li class="list-group-item">
+                <h4><%= link_to book.title, work_path(book.id)%><br>
+                  <small class="top-ten__creator">by<%=book.creator%></small> 
+                </h4>
+                <p><%=book.votes.count%>votes</p>  
+              </li> 
+          <%end%>
+        <%else%>
+           <p>No Book have been created in system</p>
+        <%end%>
+            </ul>     
   </section> 
-   <section class="top-ten__container">
-       <section class="top-ten__list-container">
-     
-       <%top_albums = Work.top_ten("album")%>   
-        <%if top_albums.length > 0%>
+
+
+    <section class="top-ten__list-container">
+      <%top_albums = Work.top_ten("album")%>
         <h2 class="top-ten__header"> Top Album
-      <h2> 
-          <ul class="list-group top-ten__list"> <%top_albums.each do |album|%>
-            <li class="list-group-item">
-              <h4><a href=""> <%= link_to album.title, work_path(album.id)%></a> <br>
-                <small class="top-ten__creator">by<%=album.creator%></small> 
-              </h4>
-              <p><%=album.votes.count%>votes</p>  
-            </li> 
+        <h2> 
+        <%if top_albums.length > 0%>
+         <%top_albums.each do |album|%>   
+            <ul class="list-group top-ten__list"> 
+              <li class="list-group-item">
+                <h4><%= link_to album.title, work_path(album.id)%><br>
+                 <small class="top-ten__creator">by<%=album.creator%></small> 
+                </h4>
+                <p><%=album.votes.count%>votes</p>  
+             </li> 
             <%end%>
-            <%else%>
-               <p>No Album have been created in system</p>
-             <%end%>
-          </ul>     
+          <%else%>
+             <p>No Album have been created in system</p>
+        <%end%>
+        </ul>     
   </section> 
+</main>
    
 
  
