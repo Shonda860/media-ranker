@@ -19,8 +19,7 @@ describe User do
 
   describe "relationships" do
     before do
-      users(:user_1).save
-      @new_user = User.first
+      @new_user = users(:user_1)
       @work_1 = works(:eagles)
       @work_2 = works(:kobe)
       @work_3 = works(:wayne)

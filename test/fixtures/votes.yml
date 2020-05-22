@@ -1,0 +1,9 @@
+vote_1:
+  work_id: 1
+  user_id: 1
+vote_2:
+  work_id: 2
+  user_id: 2
+vote_3:
+  work_id: 3
+  user_id: 3
