@@ -10,7 +10,7 @@ describe User do
     it "will have the required fields" do
       users(:user_1).username = nil
       no_username = users(:user_1).valid?
-       expect (no_username).must_equal false      
+       expect _(no_username).must_equal false      
     end
     it "it can advise of errors" do
     
@@ -19,8 +19,7 @@ describe User do
 
   describe "relationships" do
     before do
-      users(:user_1).save
-      @new_user = User.first
+      @new_user = users(:user_1)
       @work_1 = works(:eagles)
       @work_2 = works(:kobe)
       @work_3 = works(:wayne)
